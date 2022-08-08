@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Copy firmware to the node's firmware.class_path folder
+cp -r /opt/firmware/habanalabs /var/lib/firmware/
+
+# Scanning modules dependencies
+depmod -b /opt
+
+# Loading kernel module
+modprobe -d /opt habanalabs
+
+# Sleep until we're killed
+sleep infinity
