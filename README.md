@@ -45,7 +45,7 @@ ghcr.io.
 
 ```shell
 podman login ghcr.io
-podman push ghcr.io/fabiendupont/habana-ai-driver:${DRIVER_VERSION}-${KERNEL_VERSION}
+podman push ghcr.io/fabiendupont/habana-ai-driver:${HABANA_VERSION}-${KERNEL_VERSION}
 ```
 
 ## Maintain a library of Habana AI driver images
