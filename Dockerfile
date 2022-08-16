@@ -13,8 +13,8 @@ ARG RHEL_VERSION=""
 
 RUN mkdir -p /home/builder/habanalabs \
     && cd /home/builder/habanalabs \
-    && rpm2cpio https://vault.habana.ai/artifactory/centos/8/8.3/habanalabs-${HABANA_VERSION}.el8.noarch.rpm | cpio -id \
-    && rpm2cpio https://vault.habana.ai/artifactory/centos/8/8.3/habanalabs-firmware-${HABANA_VERSION}.el8.${ARCH}.rpm | cpio -id \
+    && rpm2cpio https://vault.habana.ai/artifactory/rhel/8/${RHEL_VERSION}/habanalabs-${HABANA_VERSION}.el8.noarch.rpm | cpio -id \
+    && rpm2cpio https://vault.habana.ai/artifactory/rhel/8/${RHEL_VERSION}/habanalabs-firmware-${HABANA_VERSION}.el8.${ARCH}.rpm | cpio -id \
     && cd /home/builder/habanalabs/usr/src/habanalabs-${HABANA_VERSION} \
     && make -j4 KVERSION=${KERNEL_VERSION}.${ARCH} GIT_SHA=${HABANA_GIT_SHA} \
     && xz drivers/misc/habanalabs/habanalabs.ko

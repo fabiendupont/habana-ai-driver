@@ -7,7 +7,7 @@ MATRIX_FILE="build-matrix.json"
 echo "Generating matrix in ${MATRIX_FILE}"
 
 # TODO: Use an external matrix for HABANA drivers
-HABANA_VERSIONS=("1.4.1-11")
+HABANA_VERSIONS=("1.6.0-439")
 
 # Retrieve all the unique kernel versions
 KVERS=()
