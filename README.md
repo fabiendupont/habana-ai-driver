@@ -29,7 +29,7 @@ headers that contains the digest in the redirect URL.
 
 ```shell
 export RHEL_VERSION="8.6"
-export BASE_DIGET=$(curl -sI \
+export BASE_DIGEST=$(curl -sI \
     -H "Accept: application/vnd.docker.distribution.manifest.v2+json" \
     "https://registry.access.redhat.com/v2/ubi8/ubi-minimal/manifests/${RHEL_VERSION}" \
     | grep -i "^Location: " | rev | cut -d '/' -f 1 | rev)

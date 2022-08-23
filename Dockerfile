@@ -42,11 +42,9 @@ LABEL io.k8s.description="Habana Labs Driver allows deploying matching driver / 
       version="${HABANA_VERSION}-${KERNEL_VERSION}.${ARCH}"
 
 COPY --from=builder --chown=0:0 /home/builder/habanalabs/usr/src/habanalabs-${HABANA_VERSION}/drivers/misc/habanalabs/habanalabs.ko.xz /opt/lib/modules/${KERNEL_VERSION}.${ARCH}/extra/habanalabs.ko.xz
-COPY --from=builder --chown=0:0 /home/builder/habanalabs/lib/firmware/habanalabs/gaudi /opt/firmware/habanalabs/gaudi
+COPY --from=builder --chown=0:0 /home/builder/habanalabs/lib/firmware/habanalabs/gaudi /opt/lib/firmware/habanalabs/gaudi
 RUN microdnf install -y kmod util-linux && microdnf clean all \
     && touch /opt/lib/modules/${KERNEL_VERSION}.${ARCH}/modules.builtin \
-    && touch /opt/lib/modules/${KERNEL_VERSION}.${ARCH}/modules.order
-
-COPY entrypoint /usr/bin/entrypoint
-COPY exitpoint /usr/bin/exitpoint
-ENTRYPOINT ["/usr/bin/entrypoint"]
+    && touch /opt/lib/modules/${KERNEL_VERSION}.${ARCH}/modules.order \
+    && depmod -b /opt ${KERNEL_VERSION}.${ARCH}
+USER 1001
