@@ -1,4 +1,0 @@
-#!/bin/bash
-
-rmmod habanalabs
-rm -rf /var/lib/firmware/habanalabs

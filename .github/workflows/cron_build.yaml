@@ -60,7 +60,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push nvidia-gpu-driver:${{matrix.versions.driver }}-${{ matrix.versions.kernel }}.${{ matrix.versions.arch_tag }}
+      - name: Build and push habana-ai-driver:${{matrix.versions.driver }}-${{ matrix.versions.kernel }}.${{ matrix.versions.arch_tag }}
         uses: docker/build-push-action@v3
         with:
           context: .
