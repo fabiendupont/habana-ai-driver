@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push habana-ai-driver:${{matrix.versions.driver }}-${{ matrix.versions.kernel }}.${{ matrix.versions.arch_tag }}
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: true
