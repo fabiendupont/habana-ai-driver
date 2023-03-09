@@ -72,4 +72,5 @@ jobs:
             "RHEL_VERSION=${{ matrix.versions.rhel }}"
             "KERNEL_VERSION=${{ matrix.versions.kernel }}"
             "HABANA_VERSION=${{ matrix.versions.driver }}"
+            "DRIVER_TOOLKIT_IMAGE=${{ matrix.versions.driver-toolkit-image }}"
             "DRIVER_EPOCH=1"
