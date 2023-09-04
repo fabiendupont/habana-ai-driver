@@ -17,7 +17,7 @@ jobs:
       matrix: ${{ steps.gen-matrix.outputs.matrix }}
     steps:
       - name: Checkout current repository to get the matrix file
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate the build matrix
         id: gen-matrix
@@ -39,7 +39,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout current repository for the Dockerfiles
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Lint Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
